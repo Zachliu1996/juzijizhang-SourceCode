@@ -3,12 +3,15 @@ import React from 'react'
 import styled from 'styled-components'
 
 const TagsSection = styled.section`
-  background: #fff;
-  padding:0 16px;
-  >ol{
+  background: #fff;padding: 0 16px;flex-grow: 1;
+  display: flex;flex-direction: column;justify-content: flex-end;
+  align-items: flex-start;
+
+  > ol {
     margin: 0 -12px;
-    >li{
-      background: #d9d9d9;
+
+    > li {
+      background: #efd0c4;
       border-radius: 18px;
       display: inline-block;
       padding: 3px 18px;
@@ -16,12 +19,13 @@ const TagsSection = styled.section`
       margin: 4px 12px;
     }
   }
-  >button{
+
+  > button {
     background: none;
-    border:none;
-    padding:2px 4px;
-    border-bottom: 1px solid #333;
-    color:#666;
+    border: none;
+    padding: 2px 4px;
+    border-bottom: 1px solid #ffb79b;
+    color: #ffb79b;
     margin-top: 8px;
   }
 `
@@ -45,22 +49,26 @@ const NotesSection = styled.section`
 `
 const CategorySection = styled.section`
   font-size: 24px;
-  >ul{
-    display: flex;background: #c4c4c4;
-    >li{
+
+  > ul {
+    display: flex;
+    background: #ff9c76;
+
+    > li {
       width: 50%;
       text-align: center;
       padding: 16px 0;
       position: relative;
-      &.selected::after{
-        content:'';
-        background: #333;
+
+      &.selected::after {
+        content: '';
+        background: #04a1dc;
         display: block;
-        height:3px;
+        height: 3px;
         position: absolute;
         width: 100%;
-        bottom:0;
-        left:0;
+        bottom: 0;
+        left: 0;
       }
     }
   }
@@ -133,11 +141,14 @@ const NumberPadSection = styled.section`
     }
   }
 `
-
+const MyLayout = styled(Layout)`
+  display: flex;
+  flex-direction: column;
+`
 
 function Money() {
   return(
-    <Layout>
+    <MyLayout>
 
       <TagsSection>
         <ol>
@@ -190,7 +201,7 @@ function Money() {
         </div>
       </NumberPadSection>
 
-    </Layout>
+    </MyLayout>
   )
 }
 
