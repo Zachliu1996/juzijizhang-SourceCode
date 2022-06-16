@@ -22,12 +22,7 @@ function Money() {
 
       <NoteSection/>
 
-      <CategorySection>
-          <ul>
-            <li className="selected">支出</li>
-            <li>收入</li>
-          </ul>
-        </CategorySection>
+      <CategorySection/>
 
       <NumberPadSection>
         <div className="output" >100</div>
