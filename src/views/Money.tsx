@@ -1,10 +1,10 @@
-import Layout from '../components/Layout'
-import React from 'react'
-import styled from 'styled-components'
-import {CategorySection} from './Money/CategorySection'
-import {NotesSection} from './Money/NotesSection'
-import {NumberPadSection} from './Money/NumberPadSection'
-import {TagsSection} from './Money/TagsSection'
+import Layout from '../components/Layout';
+import React from 'react';
+import styled from 'styled-components';
+import {CategorySection} from './Money/CategorySection';
+import {NumberPadSection} from './Money/NumberPadSection';
+import {TagsSection} from './Money/TagsSection';
+import {NoteSection} from './Money/NoteSection'
 
 
 
@@ -20,12 +20,7 @@ function Money() {
 
       <TagsSection/>
 
-      <NotesSection>
-        <label>
-          <span>备注:</span>
-          <input type="text" placeholder="请在此处添加备注"></input>
-        </label>
-      </NotesSection>
+      <NoteSection/>
 
       <CategorySection>
           <ul>

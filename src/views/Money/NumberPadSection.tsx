@@ -15,6 +15,7 @@ const NumberPadSection = styled.section`
   }
 
   > .pad {
+    
     > button {
       font-size: 18px;
       border: none;
@@ -30,7 +31,7 @@ const NumberPadSection = styled.section`
       &.zero {
         width: 50%;
       }
-
+      
       &:nth-child(1) {
         background: #ffb79b;
       }
