@@ -86,7 +86,7 @@ const NumberPadSection:React.FC = ()=>{
       case '7':
       case '8':
       case '9':
-        if (output===0){setOutput(text)}
+        if (output==='0'){setOutput(text)}
         else{setOutput(output + text)}
 
         break
