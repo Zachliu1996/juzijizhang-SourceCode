@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import React, {useState} from 'react'
+import React from 'react'
 
 const Wrapper = styled.section`
   display: flex;
@@ -70,19 +70,29 @@ const Wrapper = styled.section`
     }
   }
 `
+type Props = {
+  value:number,
+  onChange:(value:number)=>void;
+  onOk?:()=>void;
+}
 
-const NumberPadSection:React.FC = ()=>{
-  const [output,_setOutput] = useState('0')
+const NumberPadSection:React.FC<Props> = (props)=>{
+  const output = props.value.toString();
   const setOutput = (output:string)=>{
-    if (output.length>16){output=output.slice(0,16)}
+    let value
+    if (output.length>16){value = parseFloat(output.slice(0,16))}
   else if (output.length === 0) {
-      output = '0';
-    }
-    _setOutput(output);
+      value = 0;
+    }else {value = parseFloat(output)}
+    props.onChange(value);
   }
   const onClickButtonWrapper = (e:React.MouseEvent)=>{
     const text = (e.target as HTMLButtonElement).textContent;
     if(text===null){return;}
+    if (text==='ok'){
+      if(props.onOk){props.onOk()}
+      return;
+    }
 
     switch(text){
       case '0':
