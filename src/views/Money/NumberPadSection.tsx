@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import React from 'react'
+require('helper.scss')
 
 const Wrapper = styled.section`
   display: flex;
@@ -13,6 +14,7 @@ const Wrapper = styled.section`
     padding: 0 16px;
     box-shadow: inset 0 -5px 5px -5px rgba(0, 0, 0, 0.25),
     inset 0 5px 5px -5px rgba(0, 0, 0, 0.25);
+    font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
   }
 
   > .pad {
