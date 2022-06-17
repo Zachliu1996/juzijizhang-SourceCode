@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import React, {useState} from 'react'
+import {useTags} from 'useTags'
+import {createId} from '../../lib/createId'
 
 const Wrapper = styled.section`
   background: #fff;
@@ -42,17 +44,14 @@ type Props = {
   onChange: (selected:number[]) => void,
 }
 const TagsSection:React.FunctionComponent<Props>=(props)=>{
-  const [tags,setTags] = useState<{id:number,name:string}[]>([
-    {id:1,name:'衣'},
-    {id:2,name:'食'},
-    {id:3,name:'住'},
-    {id:4,name:'行'}])
+
+  const {tags, setTags} = useTags();
   const selectedTagIds = props.value;
 
     const onAddTag=()=>{
     const tagName = window.prompt('请输入新标签名称')
     if(tagName!==null){
-      setTags([...tags, {id:Math.random(),name:tagName}])
+      setTags([...tags, {id:createId(),name:tagName}])
     }
   }
   const onToggleTag = (tagID:number)=>{
