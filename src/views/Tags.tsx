@@ -1,11 +1,15 @@
 import Layout from '../components/Layout'
-import React, {useState} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Icon from '../components/Icon'
 import { Link } from 'react-router-dom'
 import {useTags} from '../useTags'
 import {Button} from '../components/Button'
+import {Center} from '../components/Center'
 
+const Space = styled.div`
+  height: 24px;
+`
 const TagList = styled.ol`
   font-size: 16px;
   background: white;
@@ -23,18 +27,9 @@ const TagList = styled.ol`
   }
 `
 
-const Center = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`
-const Space = styled.div`
-  height: 24px;
-`
 
 function Tags() {
-  const {tags,setTags} = useTags();
+  const {tags} = useTags();
   return(
     <Layout>
       <TagList>
