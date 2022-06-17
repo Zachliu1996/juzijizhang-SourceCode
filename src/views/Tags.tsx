@@ -39,13 +39,17 @@ const Space = styled.div`
 `
 
 function Tags() {
-  const [tags,setTags] = useState<string[]>(['衣','食','住','行'])
+  const [tags,setTags] = useState<{id:number,name:string}[]>([
+    {id:1,name:'衣'},
+    {id:2,name:'食'},
+    {id:3,name:'住'},
+    {id:4,name:'行'}])
   return(
     <Layout>
       <TagList>
-        {tags.map(tag=><li key={tag}>
-          <Link to={"/tag/"+tag}>
-          <span className="oneLine"> {tag} </span>
+        {tags.map(tag=><li key={tag.id}>
+          <Link to={"/tags/"+tag}>
+          <span className="oneLine"> {tag.name} </span>
           <Icon name="right"/>
           </Link>
         </li>)}

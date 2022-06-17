@@ -14,7 +14,7 @@ const MyLayout = styled(Layout)`
 
 function Money() {
   const [selected,setSelected] = useState({
-    tags:[] as string[],
+    tagIds:[] as number[],
     note:'',
     category:'-' as ('-' | '+'),
     amount:0
@@ -26,15 +26,15 @@ const onChange=(obj:Partial<typeof selected>)=>{
 
   return(
     <MyLayout>
-      {selected.tags.join(',')}
+      {selected.tagIds.join(',')}
       <hr/>
       {selected.note}
       <hr/>
       {selected.category}
       <hr/>
       {selected.amount}
-      <TagsSection value={selected.tags}
-                   onChange={tags=>onChange({tags})}/>
+      <TagsSection value={selected.tagIds}
+                   onChange={tagIds=>onChange({tagIds})}/>
 
       <NoteSection value={selected.note} onChange={note=>onChange({note})}  />
 
