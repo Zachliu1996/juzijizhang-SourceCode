@@ -9,7 +9,9 @@ const defaultTags = [
 ]
 const useTags = ()=> {
   const [tags,setTags] = useState<{ id: number, name: string }[]>(defaultTags);
+
   const findTag = (id:number)=>tags.filter(tag =>tag.id===id)[0];
+
   const findTagIndex = (id:number) =>{
     let result = -1;
     for(let i=0;i<tags.length;i++){
@@ -29,8 +31,18 @@ const useTags = ()=> {
     // 把 tagsClone 的第 index 删掉，换成 {id:id, name: obj.name}
     setTags(tagsClone)
   }
-  return {tags,setTags,findTag,updateTag,findTagIndex}
-};
 
+  const deleteTag = (id:number) =>{
+    const index = findTagIndex(id)
+    // 获取要删的 tag 的下标
+    const tagsClone = JSON.parse(JSON.stringify(tags))
+    // 深拷贝 tags 得到 tagsClone
+    tagsClone.splice(index, 1)
+    // 把 tagsClone 的第 index 删掉
+    setTags(tagsClone)
+  };
+
+  return {tags,setTags,findTag,updateTag,findTagIndex,deleteTag}
+};
 
 export {useTags}

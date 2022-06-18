@@ -28,9 +28,10 @@ const Space = styled.div`
   height: 24px;
 `
 const Tag:React.FC = ()=>{
-  const {findTag,updateTag} = useTags();
+  const {findTag,updateTag,deleteTag} = useTags();
   let {id} = useParams<Params>();
   const tag= findTag(parseInt(id));
+
   return (
     <Layout>
       <Topbar>
@@ -38,21 +39,24 @@ const Tag:React.FC = ()=>{
         <span>编辑标签</span>
         <Icon/>
       </Topbar>
-    <div>
+      {tag?
+      <div>
       <InputWrapper>
         <Input label="标签名" type="text" placeholder="标签名" onChange={(e)=>{
           updateTag(tag.id,{name:e.target.value})
         }} value={tag.name}
         />
       </InputWrapper>
-    </div>
+
       <Center>
         <Space/>
         <Space/>
-        <Button>删除标签</Button>
+        <Button onClick={()=>{deleteTag(tag.id)}}>删除标签</Button>
       </Center>
+      </div> :<Center> tag 不存在</Center>}
     </Layout>
   )
+
 }
 
 export {Tag};
