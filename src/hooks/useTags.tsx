@@ -51,9 +51,13 @@ const useTags = ()=> {
     if(tagName!==null && tagName!==''){
       setTags([...tags, {id:createId(),name:tagName}])
     }
+  };
+  const getName =(id:number)=>{
+    const tag = tags.filter(t=>t.id===id)[0];
+    return tag ? tag.name : '无'
   }
 
-  return {tags,addTag,setTags,findTag,updateTag,findTagIndex,deleteTag}
+  return {tags,getName,addTag,setTags,findTag,updateTag,findTagIndex,deleteTag}
 };
 
 export {useTags}
