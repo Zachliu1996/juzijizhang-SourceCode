@@ -1,6 +1,6 @@
 import React from 'react'
-import {useTags} from '../useTags'
-import {useParams} from 'react-router-dom'
+import {useTags} from '../hooks/useTags'
+import {useHistory, useParams} from 'react-router-dom'
 import Layout from '../components/Layout'
 import Icon from '../components/Icon'
 import {Button} from '../components/Button'
@@ -31,11 +31,15 @@ const Tag:React.FC = ()=>{
   const {findTag,updateTag,deleteTag} = useTags();
   let {id} = useParams<Params>();
   const tag= findTag(parseInt(id));
+  const history = useHistory()
+  const onclickBack = ()=>{
+    history.goBack()
+  }
 
   return (
     <Layout>
       <Topbar>
-        <Icon name='left'/>
+        <Icon name='left' onClick={onclickBack}/>
         <span>编辑标签</span>
         <Icon/>
       </Topbar>
