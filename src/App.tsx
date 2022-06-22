@@ -9,7 +9,10 @@ import styled from 'styled-components'
 import {Tag} from './views/Tag'
 
 const AppWrapper = styled.div`
-cokor:#333;
+  color:#333;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 `
 
 function App() {

@@ -18,8 +18,14 @@ const defaultFormData = {
   category:'-' as ('-' | '+'),
   amount:0
 }
+const Header = styled.div`
+  background-color: #ff9c76;
+  text-align:center;
+  line-height: 48px;
+  font-size: 24px;
+  padding: 4px 0;
+`
 function Money() {
-  console.log('Money 执行了');
   const [selected, setSelected] = useState(defaultFormData);
   const { addRecord} = useRecords();
   const onChange = (obj: Partial<typeof selected>) => {
@@ -32,8 +38,7 @@ function Money() {
 
   return(
     <MyLayout>
-      {JSON.stringify(selected)}
-      <hr/>
+      <Header>桔子记账</Header>
       <TagsSection value={selected.tagIds}
                    onChange={tagIds=>onChange({tagIds})}/>
 

@@ -26,14 +26,24 @@ const TagList = styled.ol`
     }
   }
 `
-
+const Header = styled.h3`
+  text-align: center;
+  padding: 16px;
+  background: #ff9c76;
+  color:white;
+  margin-bottom: 8px;
+`
 
 function Tags() {
   const {tags,addTag} = useTags();
   return(
     <Layout>
       <TagList>
-        {tags.map(tag=><li key={tag.id}>
+        <Header>
+          所有标签
+        </Header>
+        {tags.map(tag=>
+          <li key={tag.id}>
           <Link to={"/tags/"+tag.id}>
           <span className="oneLine"> {tag.name} </span>
           <Icon name="right"/>
@@ -42,7 +52,8 @@ function Tags() {
 
       </TagList>
       <Center>
-      <Space/>
+        <Space/>
+        <Space/>
       <Button onClick={addTag}>新增标签</Button>
       <Space/>
       </Center>

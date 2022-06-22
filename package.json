@@ -1,6 +1,7 @@
 {
   "name": "jizhangreact",
   "version": "0.1.0",
+  "homepage": "https://Zachliu1996.github.io/juzijizhang-website",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",

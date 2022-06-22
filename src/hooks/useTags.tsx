@@ -12,6 +12,7 @@ const useTags = ()=> {
         {id: createId(), name: '食'},
         {id: createId(), name: '住'},
         {id: createId(), name: '行'},
+        {id: createId(), name: '工资'}
       ];
     }
     setTags(localTags);
@@ -33,16 +34,9 @@ const useTags = ()=> {
       return result;
     }
   }
-  const updateTag = (id:number,obj:{name:string}) => {
-    const index = findTagIndex(id);
-    // 获取要改的 tag 的下标
-    const tagsClone = JSON.parse(JSON.stringify(tags))
-    // 深拷贝 tags 得到 tagsClone
-    tagsClone.splice(index, 1, {id: id, name: obj.name});
-    // 把 tagsClone 的第 index 删掉，换成 {id:id, name: obj.name}
-    setTags(tagsClone)
+  const updateTag = (id:number, {name}:{name:string}) => {
+    setTags(tags.map(tag => tag.id === id ? {id, name: name} : tag))
   }
-
   const deleteTag = (id:number) =>{
     setTags(tags.filter(tag=>tag.id!==id))
   };

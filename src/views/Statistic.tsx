@@ -69,7 +69,7 @@ function Statistics() {
                 {r.note}
               </div>}
               <div className="amount">
-                ￥ {r.amount}
+                {r.category} ￥ {r.amount}
               </div>
             </Item>;
           })}
